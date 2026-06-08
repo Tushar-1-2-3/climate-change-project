@@ -6,8 +6,8 @@ import { ImageWithFallback } from "./figma/ImageWithFallback"
 import { useEffect, useState } from "react"
 
 export function Hero() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
+  const [windowWidth, setWindowWidth] = useState(() => (typeof window !== "undefined" ? window.innerWidth : 0))
+  const [windowHeight, setWindowHeight] = useState(() => (typeof window !== "undefined" ? window.innerHeight : 0))
   const [dots, setDots] = useState<Array<{ x: number; y: number }>>([])
 
   useEffect(() => {
